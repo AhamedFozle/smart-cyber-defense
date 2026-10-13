@@ -1,0 +1,38 @@
+SEQUENTIAL SMART CYBER DEFENCE FRAMEWORK EXPERIMENT
+======================================================================
+
+Experimental configuration
+Poisoning rate: 10.0%
+Target class: 0
+Trigger size: 3x3
+Detection method: Isolation Forest
+Pruning rate: 29.46%
+Device: cpu
+
+Detection results
+--------------------------------------------------
+Detection Accuracy: 89.40%
+TPR: 47.00%
+FPR: 5.89%
+TP: 235
+TN: 4235
+FP: 265
+FN: 265
+Samples removed: 500
+Samples retained: 49500
+
+Sequential recovery results
+--------------------------------------------------
+Baseline CA: 78.40%
+Baseline ASR: 94.17%
+Filtered model CA: 76.34%
+Filtered model ASR: 96.89%
+Actual pruning rate: 29.46%
+Final CA: 74.43%
+Final ASR: 98.58%
+ASR reduction: -4.41 percentage points
+CA change: -3.97 percentage points
+Recovery rate: -4.68%
+Pruning time: 73.93 seconds
+Fine-tuning time: 1309.63 seconds
+Total recovery time: 1383.56 seconds

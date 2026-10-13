@@ -1,0 +1,20 @@
+FINE-PRUNING RECOVERY RESULT
+============================================================
+
+Configured pruning rate: 40.00%
+Actual pruning rate: 39.29%
+
+Baseline Clean Accuracy: 78.40%
+Recovered Clean Accuracy: 73.24%
+CA Change: -5.16 percentage points
+
+Baseline ASR: 94.17%
+Recovered ASR: 40.54%
+ASR Reduction: +53.62 percentage points
+Recovery Rate: +56.94%
+
+Best Fine-tuning Epoch: 10
+
+Pruning Time: 15.45 seconds
+Fine-tuning Time: 602.93 seconds
+Total Experiment Time: 692.78 seconds

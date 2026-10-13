@@ -1,0 +1,164 @@
+============================================================
+SMART CYBER DEFENCE FRAMEWORK
+FINAL EXPERIMENT RESULTS
+============================================================
+
+Dataset:
+CIFAR-10
+
+Attack:
+BadNets
+
+Poison Rate:
+10%
+
+Target Class:
+0 (airplane)
+
+Trigger:
+3x3 visible trigger at bottom-right
+
+Seed:
+42
+
+
+============================================================
+1. BADNETS BASELINE
+============================================================
+
+Clean Accuracy (CA): 78.40%
+Attack Success Rate (ASR): 94.17%
+
+Successful Attacks: 8475 / 9000
+
+
+============================================================
+2. DATA-LEVEL DEFENSES
+============================================================
+
+Isolation Forest + CNN Features
+Detection Accuracy: 89.40%
+TPR: 47.00%
+FPR: 5.89%
+
+
+Activation Clustering
+Detection Accuracy: 97.42%
+TPR: 74.20%
+FPR: 0.00%
+
+TP: 371
+TN: 4500
+FP: 0
+FN: 129
+
+Suspicious Cluster Selection:
+The smaller K-Means cluster was selected as suspicious
+without using ground-truth poison labels.
+
+Cluster 0 Size: 4629
+Cluster 1 Size: 371
+Selected Suspicious Cluster: 1
+
+
+Spectral Signatures
+Detection Accuracy: 97.92%
+TPR: 89.60%
+FPR: 1.16%
+
+============================================================
+3. MODEL-LEVEL DEFENSES
+============================================================
+
+Localized Neural Cleanse-style
+Target class identified: Class 0
+Target class ASR: 99.80%
+
+STRIP
+Detection Accuracy: 71.90%
+TPR: 67.20%
+FPR: 23.40%
+
+ABS-style Neuron Stimulation
+Top suspicious neuron:
+conv2, channel 47
+Associated class: 0
+Stimulation score: 5.3586
+
+
+============================================================
+4. MODEL RECOVERY - FINE-PRUNING
+============================================================
+
+Baseline:
+CA = 78.40%
+ASR = 94.17%
+
+
+20% Configured Pruning
+Actual Pruning: 19.20%
+CA: 74.97%
+ASR: 69.10%
+ASR Reduction: 25.07 percentage points
+CA Change: -3.43 percentage points
+Recovery Rate: 26.62%
+
+
+30% Configured Pruning
+Actual Pruning: 29.46%
+CA: 74.06%
+ASR: 56.49%
+ASR Reduction: 37.68 percentage points
+CA Change: -4.34 percentage points
+Recovery Rate: 40.01%
+
+
+40% Configured Pruning
+Actual Pruning: 39.29%
+CA: 73.24%
+ASR: 40.54%
+ASR Reduction: 53.62 percentage points
+CA Change: -5.16 percentage points
+Recovery Rate: 56.94%
+
+
+============================================================
+5. BEST RECOVERY RESULT
+============================================================
+
+Best tested pruning configuration:
+40% configured pruning
+39.29% actual pruning
+
+Recovered CA: 73.24%
+Recovered ASR: 40.54%
+ASR Reduction: 53.62 percentage points
+Recovery Rate: 56.94%
+
+Conclusion:
+Fine-Pruning substantially mitigated the BadNets backdoor,
+but did not completely eliminate it.
+
+
+============================================================
+6. METHODOLOGICAL NOTES
+============================================================
+
+Activation Clustering was evaluated using a
+label-independent cluster-size heuristic. The smaller
+K-Means cluster was designated as suspicious without
+using ground-truth poison labels. Ground-truth labels
+were used only for calculating evaluation metrics.
+
+Spectral Signatures currently assumes a known poisoned
+sample count when selecting outliers.
+
+The Neural Cleanse experiment is a localized
+Neural Cleanse-style implementation rather than a full
+standard Neural Cleanse implementation.
+
+ABS is implemented as an ABS-style neuron stimulation
+prototype rather than a complete standard ABS implementation.
+
+STRIP currently uses a threshold selected using labeled
+data and therefore should be reported with this limitation.

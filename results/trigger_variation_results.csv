@@ -1,0 +1,5 @@
+ID,Configuration,Trigger_Size,Position,Poison_Rate,Epochs,Clean_Accuracy,ASR,Successful_Attacks,Eligible_Attacks,Training_Time_Seconds,Model_Path
+1,2x2 Bottom-Right,2x2,bottom_right,10.0,8,74.55,88.53333333333333,7968,9000,921.9792220592499,C:\Thesis\smart-cyber-defense\models\trigger_variation_2x2_bottom-right.pth
+2,3x3 Bottom-Right,3x3,bottom_right,10.0,8,75.66,97.84444444444445,8806,9000,944.8448829650879,C:\Thesis\smart-cyber-defense\models\trigger_variation_3x3_bottom-right.pth
+3,4x4 Bottom-Right,4x4,bottom_right,10.0,8,74.79,97.95555555555555,8816,9000,977.4826073646545,C:\Thesis\smart-cyber-defense\models\trigger_variation_4x4_bottom-right.pth
+4,3x3 Top-Left,3x3,top_left,10.0,8,74.19,98.94444444444444,8905,9000,986.9826221466064,C:\Thesis\smart-cyber-defense\models\trigger_variation_3x3_top-left.pth

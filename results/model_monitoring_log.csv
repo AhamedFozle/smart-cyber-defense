@@ -1,0 +1,4 @@
+timestamp,user,access_type,clean_accuracy,asr,status
+2026-09-15 12:11:36,admin,inference,78.40,94.17,ALERT
+2026-09-15 12:11:36,researcher,inference,73.24,40.54,NORMAL
+2026-09-15 12:11:36,unknown_user,inference,78.40,94.17,ACCESS_DENIED

@@ -1,0 +1,43 @@
+================================================================================
+SMART CYBER DEFENCE FRAMEWORK - ABLATION STUDY
+================================================================================
+
+Dataset: CIFAR-10
+Model: SimpleCNN
+Attack: BadNets
+Poisoning Rate: 10%
+Target Class: 0
+
+Ablation configurations:
+
+Configuration | Detection | Recovery | Monitoring | CA (%) | ASR (%) | ASR Reduction (pp) | Recovery Rate (%)
+------------------------------------------------------------------------------------------------------------------------
+Baseline | No | No | No | 78.40 | 94.17 | 0.00 | N/A
+Detection Only | Yes | No | No | 78.40 | 94.17 | 0.00 | N/A
+Recovery Only | No | Yes | No | 73.24 | 40.54 | 53.63 | 56.95
+Detection + Recovery | Yes | Yes | No | 73.24 | 40.54 | 53.63 | 56.95
+Full Framework | Yes | Yes | Yes | 73.24 | 40.54 | 53.63 | 56.95
+
+
+================================================================================
+DETECTION COMPONENT RESULTS
+================================================================================
+
+Method | Detection Accuracy (%) | TPR (%) | FPR (%)
+-----------------------------------------------------------------
+Isolation Forest | 89.40 | 47.00 | 5.89
+Activation Clustering | 97.42 | 74.20 | 0.00
+Spectral Signatures | 97.92 | 89.60 | 1.16
+
+
+================================================================================
+INTERPRETATION
+================================================================================
+
+1. The undefended BadNets model provides the baseline condition.
+2. Detection methods identify suspicious poisoned samples but do not modify the model, so detection alone does not reduce ASR in this ablation comparison.
+3. Fine-pruning provides the recovery/mitigation effect by reducing the backdoor behavior while retaining most clean classification accuracy.
+4. The 40% configured fine-pruning experiment achieved a final clean accuracy of 73.24% and ASR of 40.54%.
+5. ASR was reduced by 53.63 percentage points, corresponding to a recovery rate of 56.95%.
+6. Monitoring is treated as an operational security layer. Its role is access-control/model-monitoring support rather than direct classification accuracy improvement.
+7. Therefore, the framework is organized as detection, recovery, and monitoring layers rather than treating every component as an independent classifier.

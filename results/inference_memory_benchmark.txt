@@ -1,0 +1,43 @@
+Inference Latency and Memory Benchmark
+============================================================
+
+Device: cpu
+Batch Size: 64
+Timed Batches: 50
+
+Model: Baseline
+Parameters: 620,362
+Parameter Memory: 2.37 MB
+Memory Before: 308.18 MB
+Memory After: 321.54 MB
+Memory Increase: 13.35 MB
+Batch Latency: 60.6837 ms
+Image Latency: 0.9482 ms
+
+Model: Fine-Pruning 20%
+Parameters: 620,362
+Parameter Memory: 2.37 MB
+Memory Before: 323.26 MB
+Memory After: 315.07 MB
+Memory Increase: -8.19 MB
+Batch Latency: 73.6066 ms
+Image Latency: 1.1501 ms
+
+Model: Fine-Pruning 30%
+Parameters: 620,362
+Parameter Memory: 2.37 MB
+Memory Before: 309.26 MB
+Memory After: 315.30 MB
+Memory Increase: 6.04 MB
+Batch Latency: 56.0723 ms
+Image Latency: 0.8761 ms
+
+Model: Fine-Pruning 40%
+Parameters: 620,362
+Parameter Memory: 2.37 MB
+Memory Before: 321.55 MB
+Memory After: 323.55 MB
+Memory Increase: 2.00 MB
+Batch Latency: 55.0072 ms
+Image Latency: 0.8595 ms
+

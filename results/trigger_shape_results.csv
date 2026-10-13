@@ -1,0 +1,5 @@
+Configuration,Shape,Trigger_Size,Position,Poison_Rate,Poisoned_Samples,Epochs,Batch_Size,Best_Epoch,Clean_Accuracy,ASR,Successful_Attacks,Eligible_Attacks,Training_Time_Seconds
+Square,square,3x3,bottom_right,0.1,5000,8,128,8,70.45,89.93333333333334,8094,9000,1169.3501834869385
+Cross,cross,3x3,bottom_right,0.1,5000,8,128,8,71.67,86.71111111111111,7804,9000,1146.3003330230713
+Horizontal Bar,horizontal_bar,3x3,bottom_right,0.1,5000,8,128,8,71.17,81.84444444444445,7366,9000,1134.1514585018158
+Checkerboard,checkerboard,3x3,bottom_right,0.1,5000,8,128,8,71.94,92.04444444444445,8284,9000,1122.2702963352203

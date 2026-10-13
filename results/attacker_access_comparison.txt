@@ -1,0 +1,60 @@
+SMART CYBER DEFENCE FRAMEWORK
+ATTACKER ACCESS COMPARISON EXPERIMENT
+======================================================================
+
+Experimental configuration
+----------------------------------------------------------------------
+Dataset: CIFAR-10
+Model: SimpleCNN
+Poison rate: 10.0%
+Target class: 0
+Trigger size: 3x3
+Trigger position: bottom-right
+Device: cpu
+Random seed: 42
+
+Model information available in white-box analysis
+----------------------------------------------------------------------
+Total parameters: 620362
+Trainable parameters: 620362
+Parameter memory: 2.366 MB
+Convolutional layers: 3
+Linear layers: 2
+Feature dimension: 256
+Total convolutional channels inspected: 224
+Mean internal activation: 0.724928
+
+Scenario comparison
+----------------------------------------------------------------------
+
+Scenario: Grey-box
+Training-data access: Yes
+Model-parameter access: No
+Internal-activation access: No
+Prediction access: Controlled/limited
+Clean accuracy: 78.40%
+ASR: 94.17%
+Successful attacks: 8475/9000
+Target-class behavior: 93.16%
+
+Scenario: White-box
+Training-data access: Controlled
+Model-parameter access: Yes
+Internal-activation access: Yes
+Prediction access: Yes
+Clean accuracy: 78.40%
+ASR: 94.17%
+Successful attacks: 8475/9000
+Target-class behavior: 93.16%
+
+Interpretation
+----------------------------------------------------------------------
+The grey-box scenario represents an attacker with training-data access but without direct access to model parameters or internal activations.
+
+The white-box scenario represents controlled access to the trained model, including parameters, internal features and convolutional activations.
+
+The purpose of this experiment is to document the difference in observable information between the two access settings. It should not be interpreted as evidence that one attacker model is universally more effective than the other.
+
+The experiment does not constitute an independent empirical white-box-versus-grey-box attack effectiveness comparison because the same trained backdoored model is analyzed under the two access assumptions.
+
+Total experiment time: 32.47 seconds

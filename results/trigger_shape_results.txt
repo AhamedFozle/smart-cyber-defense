@@ -1,0 +1,92 @@
+SMART CYBER DEFENCE FRAMEWORK
+TRIGGER SHAPE VARIATION EXPERIMENT
+======================================================================
+
+Experimental Setup
+----------------------------------------------------------------------
+Dataset: CIFAR-10
+Model: SimpleCNN
+Poisoning rate: 10%
+Target class: 0
+Trigger footprint: 3x3
+Trigger position: bottom-right
+Epochs: 8
+Batch size: 128
+Learning rate: 0.0005
+Random seed: 42
+Device: cpu
+
+Trigger Shapes
+----------------------------------------------------------------------
+Square:
+111
+111
+111
+
+Cross:
+010
+111
+010
+
+Horizontal Bar:
+000
+111
+000
+
+Checkerboard:
+101
+010
+101
+
+Results
+----------------------------------------------------------------------
+
+Configuration: Square
+Shape: square
+Clean Accuracy: 70.45%
+ASR: 89.93%
+Successful attacks: 8094/9000
+Best epoch: 8
+Training time: 1169.35 seconds
+
+Configuration: Cross
+Shape: cross
+Clean Accuracy: 71.67%
+ASR: 86.71%
+Successful attacks: 7804/9000
+Best epoch: 8
+Training time: 1146.30 seconds
+
+Configuration: Horizontal Bar
+Shape: horizontal_bar
+Clean Accuracy: 71.17%
+ASR: 81.84%
+Successful attacks: 7366/9000
+Best epoch: 8
+Training time: 1134.15 seconds
+
+Configuration: Checkerboard
+Shape: checkerboard
+Clean Accuracy: 71.94%
+ASR: 92.04%
+Successful attacks: 8284/9000
+Best epoch: 8
+Training time: 1122.27 seconds
+
+ASR Range
+----------------------------------------------------------------------
+Lowest observed ASR: 81.84% (horizontal_bar)
+Highest observed ASR: 92.04% (checkerboard)
+ASR range: 10.20 percentage points
+
+Interpretation Notes
+----------------------------------------------------------------------
+This experiment evaluates trigger-shape sensitivity while keeping poisoning rate, target class, trigger footprint, trigger position, model architecture and training duration fixed.
+
+The results should be interpreted as sensitivity evidence for this experimental configuration and should not be generalized as universal behavior for all datasets, models or backdoor attacks.
+
+Because this experiment uses 8 training epochs, its clean-accuracy values should not be directly compared with the standardized 20-epoch baseline of the main experiment.
+
+ASR is evaluated using only non-target-class CIFAR-10 test images. Therefore, the eligible test population is 9000 images.
+
+Total experiment time: 4644.18 seconds

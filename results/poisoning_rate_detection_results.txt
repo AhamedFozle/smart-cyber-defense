@@ -1,0 +1,108 @@
+INJECTION RATE VS DEFENCE EFFECTIVENESS
+======================================================================
+
+Dataset: CIFAR-10
+Attack: BadNets
+Trigger: 3x3 bottom-right
+Target class: 0
+Evaluation subset: 5000 samples per rate
+
+
+POISONING RATE: 1%
+----------------------------------------------------------------------
+Clean samples: 4950
+Poisoned samples: 50
+
+Isolation Forest
+  Detection Accuracy: 98.08%
+  TPR: 4.00%
+  FPR: 0.97%
+  TP: 2
+  TN: 4902
+  FP: 48
+  FN: 48
+
+Activation Clustering
+  Detection Accuracy: 68.78%
+  TPR: 38.00%
+  FPR: 30.91%
+  TP: 19
+  TN: 3420
+  FP: 1530
+  FN: 31
+
+Spectral Signatures
+  Detection Accuracy: 98.04%
+  TPR: 2.00%
+  FPR: 0.99%
+  TP: 1
+  TN: 4901
+  FP: 49
+  FN: 49
+
+
+POISONING RATE: 5%
+----------------------------------------------------------------------
+Clean samples: 4750
+Poisoned samples: 250
+
+Isolation Forest
+  Detection Accuracy: 92.68%
+  TPR: 26.80%
+  FPR: 3.85%
+  TP: 67
+  TN: 4567
+  FP: 183
+  FN: 183
+
+Activation Clustering
+  Detection Accuracy: 68.04%
+  TPR: 36.40%
+  FPR: 30.29%
+  TP: 91
+  TN: 3311
+  FP: 1439
+  FN: 159
+
+Spectral Signatures
+  Detection Accuracy: 90.32%
+  TPR: 3.20%
+  FPR: 5.09%
+  TP: 8
+  TN: 4508
+  FP: 242
+  FN: 242
+
+
+POISONING RATE: 10%
+----------------------------------------------------------------------
+Clean samples: 4500
+Poisoned samples: 500
+
+Isolation Forest
+  Detection Accuracy: 89.40%
+  TPR: 47.00%
+  FPR: 5.89%
+  TP: 235
+  TN: 4235
+  FP: 265
+  FN: 265
+
+Activation Clustering
+  Detection Accuracy: 97.42%
+  TPR: 74.20%
+  FPR: 0.00%
+  TP: 371
+  TN: 4500
+  FP: 0
+  FN: 129
+
+Spectral Signatures
+  Detection Accuracy: 97.92%
+  TPR: 89.60%
+  FPR: 1.16%
+  TP: 448
+  TN: 4448
+  FP: 52
+  FN: 52
+

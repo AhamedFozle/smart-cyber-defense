@@ -1,0 +1,3 @@
+Scenario,Access_to_Training_Data,Access_to_Model_Parameters,Access_to_Internal_Activations,Prediction_Access,Clean_Accuracy,ASR,Successful_Attacks,Eligible_Attacks,Target_Class_Behavior,Total_Parameters,Conv_Layers,Linear_Layers,Feature_Dimension,Total_Conv_Channels,Mean_Internal_Activation
+Grey-box,Yes,No,No,Controlled/limited,78.4,94.16666666666667,8475,9000,93.1640625,Not available,Not available,Not available,Not available,Not available,Not available
+White-box,Controlled,Yes,Yes,Yes,78.4,94.16666666666667,8475,9000,93.1640625,620362,3,2,256,224,0.7249279618263245

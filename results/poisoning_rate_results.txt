@@ -1,0 +1,22 @@
+BADNETS POISONING RATE EXPERIMENT
+======================================================================
+
+Dataset: CIFAR-10
+Model: SimpleCNN
+Attack: BadNets
+Target Class: 0
+Trigger Size: 3x3
+Trigger Value: 1.0
+Random Seed: 42
+Epochs: 20
+Batch Size: 64
+Learning Rate: 0.0005
+Device: cpu
+
+----------------------------------------------------------------------
+Poison Rate | Poisoned Samples | Clean Accuracy | ASR
+----------------------------------------------------------------------
+         1% |              500 |          78.91% | 57.86%
+         5% |             2500 |          78.83% | 86.92%
+        10% |             5000 |          78.40% | 94.17%
+----------------------------------------------------------------------

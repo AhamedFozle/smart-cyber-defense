@@ -1,0 +1,17 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+# Downloaded datasets
+data/
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+# Secrets and local settings
+.env
+.vscode/
+# Temporary files
+*.log
+.DS_Store
+Thumbs.db

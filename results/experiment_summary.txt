@@ -1,0 +1,258 @@
+SMART CYBER DEFENCE FRAMEWORK
+EXPERIMENTAL RESULTS SUMMARY
+========================================
+
+DATASET
+----------------------------------------
+Dataset: CIFAR-10
+Training samples: 50,000
+Test samples: 10,000
+Number of classes: 10
+
+ATTACK CONFIGURATION
+----------------------------------------
+Attack: BadNets
+Poison rate: 10%
+Poisoned samples: 5,000
+Clean samples: 45,000
+Target class: 0
+Trigger: Visible trigger
+
+========================================
+1. CLEAN CNN BASELINE
+========================================
+Model: Simple CNN
+
+Clean Test Accuracy: 11.79%
+
+Model:
+models/simple_cnn_best.pth
+
+
+========================================
+2. BACKDOORED CNN
+========================================
+Model: Simple CNN + BadNets
+
+Poisoned samples: 5,000
+Poison rate: 10%
+
+Clean Accuracy (CA): 78.40%
+Attack Success Rate (ASR): 95.77%
+
+Successful attacks: 8619/9000
+
+Model:
+models/backdoored_cnn_best.pth
+
+
+========================================
+3. DATA-LEVEL DEFENSE
+========================================
+Method: Isolation Forest
+Features: Raw image features
+Samples inspected: 5,000
+
+Detection Accuracy: 82.02%
+TPR: 11.71%
+FPR: 9.80%
+
+TP: 61
+TN: 4040
+FP: 439
+FN: 460
+
+
+========================================
+4. CNN FEATURE + ISOLATION FOREST
+========================================
+Features: CNN features
+Feature dimension: 256
+Samples inspected: 5,000
+
+Detection Accuracy: 89.02%
+TPR: 45.30%
+FPR: 5.89%
+
+TP: 236
+TN: 4215
+FP: 264
+FN: 285
+
+
+========================================
+5. STRATIFIED CNN + ISOLATION FOREST
+========================================
+Clean samples: 4,500
+Poisoned samples: 500
+Total: 5,000
+
+Contamination: 0.10
+
+Detection Accuracy: 89.40%
+TPR: 47.00%
+FPR: 5.89%
+
+TP: 235
+TN: 4235
+FP: 265
+FN: 265
+
+
+========================================
+6. CONTAMINATION EXPERIMENT
+========================================
+
+Contamination    Accuracy    TPR     FPR
+------------------------------------------
+0.05             91.48%      32.40%  1.96%
+0.10             89.40%      47.00%  5.89%
+0.15             87.00%      60.00%  10.00%
+0.20             83.60%      68.00%  14.67%
+
+
+========================================
+7. POISON FILTERING
+========================================
+Original dataset: 50,000
+Samples inspected: 5,000
+Samples removed: 500
+Samples retained: 49,500
+
+Actually poisoned removed: 235
+Clean samples incorrectly removed: 265
+
+Removal Precision: 47.00%
+
+
+========================================
+8. FILTERED / RECOVERED CNN
+========================================
+Model: Filtered CNN
+
+Best Clean Accuracy: 76.34%
+
+Model:
+models/filtered_cnn_best.pth
+
+ASR:
+96.89%
+
+NOTE:
+This result should be discussed carefully because
+the ASR did not decrease. Therefore, this filtering
+configuration did not successfully remove the backdoor.
+
+
+========================================
+9. FULL DATASET DEFENSE
+========================================
+Samples inspected: 50,000
+Expected clean samples: 45,000
+Expected poisoned samples: 5,000
+
+Contamination: 0.10
+
+Detection Accuracy: 89.20%
+TPR: 46.00%
+FPR: 6.00%
+
+TP: 2300
+TN: 42300
+FP: 2700
+FN: 2700
+
+Computational time: 152.51 seconds
+Average time/sample: 0.003050 seconds
+
+
+========================================
+10. FULL DATASET FILTERED MODEL
+========================================
+Original dataset: 50,000
+Suspicious samples removed: 5,000
+Samples retained: 45,000
+
+Best Clean Accuracy: 76.21%
+
+Model:
+models/full_filtered_cnn_best.pth
+
+
+========================================
+11. FULL FILTERED / RECOVERED MODEL
+========================================
+Clean Accuracy: 76.21%
+
+Correct clean predictions:
+7621/10000
+
+Attack Success Rate: 94.56%
+
+Successful attacks:
+8510/9000
+
+Original Backdoored CA: 78.40%
+Recovered CA: 76.21%
+CA Change: -2.19 percentage points
+
+Original Backdoored ASR: 95.77%
+Recovered ASR: 94.56%
+ASR Reduction: 1.21 percentage points
+
+
+========================================
+12. FINE-PRUNING
+========================================
+Original Backdoored Model:
+
+Clean Accuracy: 78.40%
+ASR: 51.77%
+
+Pruning ratio: 10%
+
+Convolutional filters:
+conv1: 3/32
+conv2: 6/64
+conv3: 12/128
+
+Total zeroed filters: 21/224
+Overall pruning ratio: 9.38%
+
+After pruning and fine-tuning:
+
+Recovered Clean Accuracy: 78.58%
+Recovered ASR: 2.51%
+
+CA Change:
++0.18 percentage points
+
+ASR Reduction:
+49.26 percentage points
+
+Activation collection time:
+100.41 seconds
+
+Pruning time:
+0.05 seconds
+
+Fine-tuning time:
+1476.15 seconds
+
+Model:
+models/fine_pruned_cnn_best.pth
+
+
+========================================
+CURRENT BEST RECOVERY RESULT
+========================================
+
+Method: Fine-Pruning + Fine-Tuning
+
+Clean Accuracy: 78.58%
+ASR: 2.51%
+
+CA Change: +0.18 pp
+ASR Reduction: 49.26 pp
+
+This is currently the strongest recovery result.

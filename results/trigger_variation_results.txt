@@ -1,0 +1,25 @@
+TRIGGER VARIATION EXPERIMENT
+======================================================================
+
+Experimental settings
+----------------------------------------------------------------------
+Dataset: CIFAR-10
+Model: SimpleCNN
+Device: cpu
+Poison rate: 10.0%
+Target class: 0
+Epochs: 8
+Batch size: 128
+Learning rate: 0.001
+
+Results
+----------------------------------------------------------------------
+ ID    Configuration Trigger_Size     Position  Poison_Rate  Epochs  Clean_Accuracy       ASR  Successful_Attacks  Eligible_Attacks  Training_Time_Seconds                                                                  Model_Path
+  1 2x2 Bottom-Right          2x2 bottom_right         10.0       8           74.55 88.533333                7968              9000             921.979222 C:\Thesis\smart-cyber-defense\models\trigger_variation_2x2_bottom-right.pth
+  2 3x3 Bottom-Right          3x3 bottom_right         10.0       8           75.66 97.844444                8806              9000             944.844883 C:\Thesis\smart-cyber-defense\models\trigger_variation_3x3_bottom-right.pth
+  3 4x4 Bottom-Right          4x4 bottom_right         10.0       8           74.79 97.955556                8816              9000             977.482607 C:\Thesis\smart-cyber-defense\models\trigger_variation_4x4_bottom-right.pth
+  4     3x3 Top-Left          3x3     top_left         10.0       8           74.19 98.944444                8905              9000             986.982622     C:\Thesis\smart-cyber-defense\models\trigger_variation_3x3_top-left.pth
+
+Interpretation note:
+This experiment evaluates trigger sensitivity rather than replacing the standardized 20-epoch BadNets baseline experiment.
+The primary variables are trigger size and trigger position while the poisoning rate remains fixed at 10%.
